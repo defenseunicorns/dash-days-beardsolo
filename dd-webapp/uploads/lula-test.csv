@@ -1,0 +1,4 @@
+Control Acronym,Component Name,Control Description
+ac-6.9,authservice,"""Privileged events, including updating the deployment of an application,
+                or use of privileged containers are collected as metrics by prometheus and
+                displayed by Grafana """

@@ -1,0 +1,44 @@
+<!-- templates/index.html -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lula Compliance</title>
+    <style>
+      pre {
+        background-color: #f8f8f8;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Upload Your OSCAL File Here</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" />
+      <input type="submit" value="Upload" />
+    </form>
+    <div id="message"></div>
+    <pre id="yaml-output"></pre>
+
+    <script>
+      // Check if there are messages in the URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const message = urlParams.get("message");
+      const yamlOutput = urlParams.get("yamlOutput");
+
+      // If there is a message, display it
+      if (message) {
+        document.getElementById("message").innerText = message;
+      }
+
+      // If there is YAML output, display it
+      if (yamlOutput) {
+        document.getElementById("yaml-output").innerText = yamlOutput;
+      }
+    </script>
+  </body>
+</html>
